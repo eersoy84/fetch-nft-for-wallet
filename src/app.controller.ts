@@ -7,7 +7,7 @@ const logger = new Logger();
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @EventPattern("fetch_nft_data_for_wallet")
+  @EventPattern("nft.for.wallet.request")
   handleNftForWalletRequest(@Payload(new ValidationPipe()) data: any) {
     this.appService.handleNftForWalletRequest(data.value);
   }
