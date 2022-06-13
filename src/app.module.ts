@@ -3,7 +3,7 @@ import { ConfigModule } from "@nestjs/config";
 import { ClientsModule, Transport } from "@nestjs/microservices";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { FILTER_NFT_DATA_SERVICE } from "./app-constants";
+import { FILTER_NFT_DATA_SERVICE } from "./app.constants";
 import { MoralisModule } from "./moralis/moralis.module";
 
 @Module({
@@ -20,6 +20,7 @@ import { MoralisModule } from "./moralis/moralis.module";
           },
           consumer: {
             groupId: "filter.nft.data.consumer",
+            allowAutoTopicCreation: false,
           },
         },
       },

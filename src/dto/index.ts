@@ -1,1 +1,1 @@
-export * from './nft-for-wallet-request.dto';
+export * from './wallet-request.dto';

@@ -7,15 +7,17 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
-        brokers: [process.env.KAFKA_BROKER_URL],
+        // brokers: [process.env.KAFKA_BROKER_URL],
+        brokers: [process.env.KAFKA_BROKER_URL, process.env.KAFKA_BROKER_URL2],
       },
       consumer: {
-        groupId: "nft_for_wallet_request_consumer",
+        groupId: "nft_wallet_request_consumer",
         retry: {
           retries: 2,
           initialRetryTime: 3000,
           maxRetryTime: 30000,
         },
+        allowAutoTopicCreation: false,
       },
     },
   });
