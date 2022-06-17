@@ -1,19 +1,19 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import KafkaCustomerTransporter from "./kafka-custom-transporter";
+import KafkaCustomTransporter from "./kafka-custom-transporter";
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
-    strategy: new KafkaCustomerTransporter({
+    strategy: new KafkaCustomTransporter({
       subscribe: {
         fromBeginning: true,
       },
       client: {
-        clientId: "fetchNftForWallet",
+        clientId: "nftForWallet",
         brokers: [process.env.KAFKA_BROKER_URL],
       },
       consumer: {
-        groupId: "fetchNftForWallet-consumer",
+        groupId: "nftForWallet-consumer",
         allowAutoTopicCreation: false,
       },
       run: {

@@ -13,7 +13,6 @@ import { WalletRequestDto } from "src/dto";
 @Injectable()
 export class KafkaService implements OnModuleInit, OnModuleDestroy {
   private admin: Admin;
-  private consumer: Consumer;
   private producer: Producer;
   private logger: Logger;
   private kafka: Kafka;

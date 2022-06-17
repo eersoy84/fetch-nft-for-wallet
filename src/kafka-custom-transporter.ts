@@ -3,7 +3,7 @@ import { EachMessagePayload, KafkaMessage } from "@nestjs/microservices/external
 import { NO_MESSAGE_HANDLER } from "@nestjs/microservices/constants";
 import { Observable } from "rxjs";
 
-export default class KafkaCustomerTransporter extends ServerKafka {
+export default class KafkaCustomTransporter extends ServerKafka {
   public async handleMessage(payload: EachMessagePayload) {
     const channel = payload.topic;
     const rawMessage = this.parser.parse<KafkaMessage>(
